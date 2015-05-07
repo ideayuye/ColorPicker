@@ -1,0 +1,8 @@
+﻿<Window x:Class="ColorPicker.WindowShade"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WindowShade" Height="572" Width="629" Opacity="1" WindowStyle="None" 
+        MouseRightButtonDown="Window_MouseRightButtonDown" 
+        AllowsTransparency="True" Loaded="Window_Loaded"  Background="#FF23C423">
+    <!--<Path Stroke="Black"  x:Name="P1" Data="M 0,0 H 500 V 500 H 0 Z M 200,200 A 100,100 45 1 1 300,300 Z"/>-->
+</Window>

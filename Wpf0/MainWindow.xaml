@@ -1,0 +1,50 @@
+﻿<Window x:Class="ColorPicker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="拾色器" Loaded="Window_Loaded"  Closed="Window_Closed" Opacity="1" FontWeight="Normal" FontFamily="Comic Sans MS" Height="175" Width="209" ResizeMode="CanMinimize" ForceCursor="True">
+    <Grid >
+        <Rectangle Height="60" HorizontalAlignment="Left" Margin="30,10,0,0" Name="rectangle" Stroke="#FF077218" VerticalAlignment="Top" Width="60" Cursor="Pen" MouseLeftButtonDown="rectangle_MouseLeftButtonDown" />
+        <Label Content="R:" Height="23" HorizontalAlignment="Left" Margin="112,9,0,0" Name="label1" VerticalAlignment="Top" Width="23" />
+        <TextBox Height="23" Margin="133,11,0,0" Name="R" VerticalAlignment="Top" AcceptsReturn="False" KeyDown="R_KeyDown" HorizontalAlignment="Left" Width="39" />
+        <Label Content="G:" Height="23" HorizontalAlignment="Left" Margin="112,40,0,0" Name="label2" VerticalAlignment="Top" Width="23" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="133,42,0,0" Name="G" VerticalAlignment="Top" Width="39" KeyDown="G_KeyDown" />
+        <Label Content="B:" Height="23" HorizontalAlignment="Left" Margin="112,70,0,0" Name="label3" VerticalAlignment="Top" Width="23" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="133,72,0,0" Name="B" VerticalAlignment="Top" Width="39" KeyDown="B_KeyDown" />
+        <TextBox Height="23" Margin="42,79,0,0" Name="colorBox" VerticalAlignment="Top" IsReadOnly="True" HorizontalAlignment="Left" Width="66" />
+        <Label Content="Color:" Height="23" HorizontalAlignment="Left" Margin="3,79,0,0" Name="label4" VerticalAlignment="Top" Width="44" />
+        <Label HorizontalAlignment="Left" Margin="173,12,0,0" Name="labelRUp" Width="11" MouseLeftButtonDown="labelRUp_MouseLeftButtonDown" MouseLeftButtonUp="labelRUp_MouseLeftButtonUp" Height="9" VerticalAlignment="Top">
+            <Label.Background>
+                <ImageBrush ImageSource="/ColorPicker;component/Images/arrow-up.png" />
+            </Label.Background>
+        </Label>
+        <Label HorizontalAlignment="Left" Margin="173,22,0,0" Name="labelRDown" Width="11" MouseLeftButtonDown="labelRDown_MouseLeftButtonDown" MouseLeftButtonUp="labelRDown_MouseLeftButtonUp" Height="9" VerticalAlignment="Top">
+            <Label.Background>
+                <ImageBrush ImageSource="/ColorPicker;component/Images/arrow-down.png" />
+            </Label.Background>
+        </Label>
+        <Label HorizontalAlignment="Left" Margin="173,43,0,0" Name="labelGUp" Width="11" MouseLeftButtonDown="labelGUp_MouseLeftButtonDown" MouseLeftButtonUp="labelGUp_MouseLeftButtonUp" Height="9" VerticalAlignment="Top">
+            <Label.Background>
+                <ImageBrush ImageSource="/ColorPicker;component/Images/arrow-up.png" />
+            </Label.Background>
+        </Label>
+        <Label Height="9" HorizontalAlignment="Left" Margin="173,53,0,0" Name="labelGDown" VerticalAlignment="Top" Width="11" MouseLeftButtonDown="labelGDown_MouseLeftButtonDown"  MouseLeftButtonUp="labelGDown_MouseLeftButtonUp">
+            <Label.Background>
+                <ImageBrush ImageSource="/ColorPicker;component/Images/arrow-down.png" />
+            </Label.Background>
+        </Label>
+        <Label HorizontalAlignment="Left" Margin="173,73,0,0" Name="labelBup" Width="11" MouseLeftButtonDown="labelBup_MouseLeftButtonDown" MouseLeftButtonUp="labelBup_MouseLeftButtonUp" Height="9" VerticalAlignment="Top">
+            <Label.Background>
+                <ImageBrush ImageSource="/ColorPicker;component/Images/arrow-up.png" />
+            </Label.Background>
+        </Label>
+        <Label HorizontalAlignment="Left" Margin="173,83,0,0" Name="labelBDown" Width="11" MouseLeftButtonDown="labelBDown_MouseLeftButtonDown" Height="9" MouseLeftButtonUp="labelBDown_MouseLeftButtonUp" VerticalAlignment="Top">
+            <Label.Background>
+                <ImageBrush ImageSource="/ColorPicker;component/Images/arrow-down.png" />
+            </Label.Background>
+        </Label>
+        <CheckBox Content="RGB" Height="16" HorizontalAlignment="Left" Margin="68,112,0,0" Name="checkBoxRGB" VerticalAlignment="Top" IsChecked="True" Checked="checkBoxRGB_Checked">
+        </CheckBox>
+        <CheckBox Content="0x" Height="16" HorizontalAlignment="Right" Margin="0,112,23,0" Name="checkBox0x" VerticalAlignment="Top" Checked="checkBox0x_Checked">
+        </CheckBox>
+    </Grid>
+</Window>

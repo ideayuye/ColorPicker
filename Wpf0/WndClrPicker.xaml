@@ -1,0 +1,78 @@
+﻿<Window x:Class="ColorPicker.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="" Height="80" Width="605" IsVisibleChanged="Window_IsVisibleChanged"
+        WindowStyle="None" Loaded="Window_Loaded" AllowDrop="True" 
+        MouseLeftButtonDown="Window_MouseLeftButtonDown" AllowsTransparency="True" Background="{x:Null}">
+    <Window.Resources >
+        <RoutedUICommand x:Key="clrPickerCmd" Text="拾色"></RoutedUICommand>
+        <Style TargetType="TextBlock">
+            <Style.Resources>
+                <Storyboard x:Key="OnMouseEnter1">
+                    <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="{x:Null}">
+                        <EasingColorKeyFrame KeyTime="0:0:0.3" Value="SkyBlue"/>
+                    </ColorAnimationUsingKeyFrames>
+                </Storyboard>
+                <Storyboard x:Key="OnMouseLeave1">
+                    <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="{x:Null}">
+                        <EasingColorKeyFrame KeyTime="0:0:0.3" Value="White"/>
+                    </ColorAnimationUsingKeyFrames>
+                </Storyboard>
+            </Style.Resources>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                    <BeginStoryboard x:Name="OnMouseLeave1_BeginStoryboard" Storyboard="{StaticResource OnMouseLeave1}"/>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                    <BeginStoryboard Storyboard="{StaticResource OnMouseEnter1}"/>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Window.InputBindings >
+        <KeyBinding Gesture="Alt+1" Command="{StaticResource clrPickerCmd}" />
+    </Window.InputBindings>
+    <Window.CommandBindings >
+        <CommandBinding Command="{StaticResource clrPickerCmd}" Executed="button1_Click"></CommandBinding>
+    </Window.CommandBindings>
+    <Grid Drop="Grid_Drop" Background="{x:Null}" Height="40" Width="580">
+        <Border Background="#FF3B3939" BorderThickness="1" BorderBrush="#FF767171" CornerRadius="3"/><!-- 圆角-->
+        <Button Content="拾色" Height="28" HorizontalAlignment="Left" Margin="12,5,0,0" Name="button1" VerticalAlignment="Top" Width="88" Click="button1_Click" BorderThickness="0" Background="{x:Null}" Foreground="White">
+            <Button.Triggers >
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background" >
+                        <Setter.Value>Gray</Setter.Value>
+                    </Setter>-
+                </Trigger>
+            </Button.Triggers>
+        </Button> 
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="160,9,0,0" Name="txtRGB" Text="RGB：" VerticalAlignment="Top" Width="129" DragEnter="textBlock1_DragEnter" Foreground="White" FontSize="15" MouseLeftButtonDown="txtRGB_MouseLeftButtonDown" />
+        <Button Content="退出" Height="28" HorizontalAlignment="Left" Margin="544,5,0,0" Name="btnExit" VerticalAlignment="Top" Width="30" Click="btnExit_Click" >
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="PART_Border" CornerRadius="0" BorderBrush="Black" BorderThickness="0" Padding="2">
+                        <Path x:Name="PART_Path" Data="M3,3 L3,3 17,17 M17,3 L17,3 3,17" Fill="White" 
+ Stroke="White" StrokeThickness="4" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="None"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <!--<Setter Property="Background" TargetName="PART_Border">
+                                <Setter.Value>Gray </Setter.Value>
+                            </Setter>-->
+                            <Setter Property="Stroke" TargetName="PART_Path" Value="#5297E0" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="UIElement.Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="10" Color="Black" Direction="0"
+ Opacity="0.6" RenderingBias="Performance" ShadowDepth="0" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <TextBlock FontSize="15" Foreground="White" Height="23" HorizontalAlignment="Left" Margin="341,10,0,0" Name="txt0x" Text="0x：" VerticalAlignment="Top" Width="129" MouseLeftButtonDown="txt0x_MouseLeftButtonDown" />
+    </Grid>
+</Window>
