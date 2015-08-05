@@ -38,13 +38,13 @@
     <Grid Drop="Grid_Drop" Background="{x:Null}" Height="40" Width="580">
         <Border Background="#FF3B3939" BorderThickness="1" BorderBrush="#FF767171" CornerRadius="3"/><!-- 圆角-->
         <Button Content="拾色" Height="28" HorizontalAlignment="Left" Margin="12,5,0,0" Name="button1" VerticalAlignment="Top" Width="88" Click="button1_Click" BorderThickness="0" Background="{x:Null}" Foreground="White">
-            <Button.Triggers >
+            <!--<Button.Triggers >
                 <Trigger Property="IsMouseOver" Value="true">
                     <Setter Property="Background" >
                         <Setter.Value>Gray</Setter.Value>
                     </Setter>-
                 </Trigger>
-            </Button.Triggers>
+            </Button.Triggers>-->
         </Button> 
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="160,9,0,0" Name="txtRGB" Text="RGB：" VerticalAlignment="Top" Width="129" DragEnter="textBlock1_DragEnter" Foreground="White" FontSize="15" MouseLeftButtonDown="txtRGB_MouseLeftButtonDown" />
         <Button Content="退出" Height="28" HorizontalAlignment="Left" Margin="544,5,0,0" Name="btnExit" VerticalAlignment="Top" Width="30" Click="btnExit_Click" >

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -118,10 +119,29 @@ namespace ColorPicker
             return r.ToString() + "," + g.ToString() + "," + b.ToString();
         }
 
+
+        private string getRepeatChar(Match m)
+        {
+            var s = m.ToString();
+            var s1 = "";
+            if (s.Length == 2)
+            {
+                s1 = s[0].ToString();
+            }
+            return s1;
+        }
+
         private string ColorTo0X(System.Drawing.Color color)
         {
             Int32 c = color.ToArgb();
-            return "#" + (c & 0x00FFFFFF).ToString("X6");
+            var clrStr = "#" + (c & 0x00FFFFFF).ToString("X6");
+            Regex r = new Regex(@"^#([0-9a-zA-Z])\1([0-9a-zA-Z])\2([0-9a-zA-Z])\3$");
+            if (r.IsMatch(clrStr))
+            {
+                Regex replace = new Regex(@"([0-9a-zA-Z])\1");
+                clrStr = replace.Replace(clrStr, new MatchEvaluator(getRepeatChar));
+            }
+            return clrStr;
         }
 
         bool isLocked = false;
